@@ -5,7 +5,7 @@ void outputArray();
 void isMathEexpectation(int* arr);
 void disp(int* arr, double mathExpectation);
 void standardDeviation(int* arr, double mathExpectation);
-void normalization(int* arr, double mathExpectation);
+void normalisation(int* arr, double mathExpectation);
 int main()
 {
 	outputArray();
@@ -32,7 +32,7 @@ void isMathEexpectation(int* arr) {
 	std::cout << "Math.Eexpectation: " << mathExpectation << '\n';
 	disp(arr, mathExpectation);
 	standardDeviation(arr, mathExpectation);
-	normalization(arr, mathExpectation);
+	normalisation(arr, mathExpectation);
 }
 void disp(int* arr, double mathExpectation) {
 	double disp = 0;
@@ -50,8 +50,8 @@ void standardDeviation(int* arr, double mathExpectation) {
 	deviation = sqrt(deviation / 10);
 	std::cout << "Deviation: " << deviation << '\n';
 }
-void normalization(int* arr, double mathExpectation) {
-	double normalization;
+void normalisation(int* arr, double mathExpectation) {
+	double normalisation;
 	double max = arr[0];
 	double min = arr[0];
 	for (int i = 0; i < 10; i++) {
@@ -59,6 +59,6 @@ void normalization(int* arr, double mathExpectation) {
 		if (min > arr[i]) min = arr[i];
 
 	}
-	normalization = (mathExpectation - min) / (max - min);
-	std::cout << "Normalization: " << normalization;
+	normalisation = (mathExpectation - min) / (max - min);
+	std::cout << "Normalisation: " << normalisation;
 }
