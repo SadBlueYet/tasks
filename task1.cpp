@@ -69,6 +69,6 @@ void sigmaRule(double mathExpectation, double deviation) {
 	int userInput;
 	std::cin >> userInput;
 	userInput = userInput - mathExpectation;
-	if ((userInput <= (3 * deviation)) && (userInput >= (3 * deviation))) std::cout << "True";
+	if ((userInput <= (3 * deviation)) && (userInput >= (-3 * deviation))) std::cout << "True";
 	else std::cout << "False";
 }
