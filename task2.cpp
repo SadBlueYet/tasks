@@ -1,41 +1,48 @@
-﻿// task2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
+﻿#include <iostream>
+#include <math.h>
 void inputArray();
-int main()
-{
+int main(){
     inputArray();
 }
-void inputArray() {
-    const int len = 3;
+void inputArray() { 
+    const int arraySize = 10;
+    int array[arraySize][arraySize];
+    int up = 0;
+    int right = 0;
+    int dawn = 0;
+    int left = 0;
     int value = 1;
-    int j = 1;
-    int i = 0;
-    int array[len][len];
-    for (i; i < len; i++) {
-        array[0][i] = value;
-        value++;
-    }
-    for (j; j < len; j++) {
-        array[j][i - 1] = value;
-        value++;
-    }
-    for (int y = len - 2; y >= 0; y--) {
-        array[j - 1][y] = value;
-        value++;
-    }
-    for (int x = 0; x <= len - 2; x++) {
-        array[1][x] = value;
-        value++;
-    }
-    for (int i = 0; i < len; i++) {
-        for (int j = 0; j < len; j++) {
-            std::cout << array[i][j] << '\t' << ' ';
 
+    while (value <= pow(arraySize, 2)) {
+        for (int i = up; i < arraySize - up; i++) {
+            array[up][i] = value;                              
+            value++;
         }
-        std::cout << '\n';
+        up++;               
+        for (int i = right + 1; i < arraySize - right; i++) {
+            array[i][arraySize - right - 1] = value;           
+            value++;
+        }
+        right++;                
+        for (int i = arraySize - 1 - right; i >= left; i--) {
+           array[arraySize - 1 - dawn][i] = value;
+           value++;
+        }
+        dawn++;
+        for (int i = arraySize - 1 - dawn; i >= up; i--) {
+            array[i][left] = value;                              
+            value++;
+        }
+        left++;          
     }
-    
+    for (int i = 0; i < arraySize; i++) {
+        for (int j = 0; j < arraySize; j++) {
+            std::cout << array[i][j] << '\t' << ' ';
+        }
+        std::cout << '\n' << '\n';
+    }
 }
+    
+
+
 
